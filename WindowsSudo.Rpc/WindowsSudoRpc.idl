@@ -1,0 +1,32 @@
+import "WTypes.Idl";
+
+[
+    uuid(a0fe973e-eec7-4190-ac8b-60311bb59895),
+    version(1.0),
+    endpoint("ncalrpc:[WindowsSudoRpc]")
+]
+interface WindowsSudoRpc {
+
+    DWORD WsrCreateProcessWithLogon(
+        [in] handle_t RpcHandle, 
+        [in] ULONG_PTR hConsoleReference,
+        [in] LPCWSTR lpszUserName,
+        [in, ptr] LPCWSTR lpszApplicationName,
+        [in, ptr] LPWSTR lpszCommandLine, 
+        [in, ptr] LPCWSTR lpszCurrentDirectory,
+        [in] DWORD cchEnvironment,
+        [in, ptr, size_is(cchEnvironment * sizeof(WCHAR)), length_is(cchEnvironment)] const WCHAR lpszsEnvironment[*],
+        [out] ULONG_PTR* phNewProcess
+    );
+    
+    DWORD WsrCreateProcessAsElevated(
+        [in] handle_t RpcHandle,
+        [in] ULONG_PTR hConsoleReference,
+        [in, ptr] LPCWSTR lpszApplicationName,
+        [in, ptr] LPWSTR lpszCommandLine,
+        [in] LPCWSTR lpszCurrentDirectory,
+        [in] DWORD cchEnvironment,
+        [in, size_is(cchEnvironment * sizeof(WCHAR)), length_is(cchEnvironment)] const WCHAR lpszsEnvironment[*],
+        [out] ULONG_PTR* phNewProcess
+    );
+}
