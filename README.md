@@ -1,5 +1,7 @@
 # Windows Sudo
 
+[中文版README](README.zh-CN.md)
+
 A linux-like su/sudo on Windows. 
 
 __This is a demo project. It may have security vulnerability. SO RUN AT YOUR OWN RISK.__
@@ -25,7 +27,7 @@ at `bin/x64-Release` (or `bin/x86-Release`) directory.
 
 ## 2. How to use?
 
-1. Move to the four `exe` files to a directory which is 
+1. Move the four `exe` files to a directory which is 
 
    1. in `%PATH%` environment variable
    
